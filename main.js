@@ -3,6 +3,7 @@ const app = () => {
   const play = document.querySelector('.play');
   const outline = document.querySelector('.moving-outline circle');
   const video = document.querySelector('.vid-container video');
+  const changeText = document.querySelector('.desc-change');
 
   // Sounds
   const sounds = document.querySelectorAll('.sound-picker button');
@@ -49,9 +50,11 @@ const app = () => {
       song.play();
       video.play();
       play.src = './svg/pause.svg';
+      changeText.textContent = `Breath in and out to relax the mind.`;
     } else {
       song.pause();
       video.pause();
+      changeText.textContent = `You can't be done just yet. Keep going.`;
       play.src = './svg/play.svg';
     }
   };
@@ -75,6 +78,7 @@ const app = () => {
       song.currentTime = 0;
       play.src = './svg/play.svg';
       video.pause();
+      changeText.textContent = `Congratulations, now press Home to go back to the main page.`;
     }
   };
 };
