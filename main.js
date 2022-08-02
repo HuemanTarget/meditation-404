@@ -16,7 +16,7 @@ const app = () => {
   // Duration
   let fakeDuration = 600;
   // Hide Home Button
-  homeBtn.style.visibility = 'hidden';
+  homeBtn.style.visibility = 'visible';
 
   outline.style.strokeDasharray = outlineLength;
   outline.style.strokeDashoffset = outlineLength;
@@ -59,11 +59,13 @@ const app = () => {
       video.play();
       play.src = './svg/pause.svg';
       changeText.textContent = `Breath in and out to relax the mind.`;
+      homeBtn.style.visibility = 'hidden';
     } else {
       song.pause();
       video.pause();
       changeText.textContent = `You can't be done just yet. Keep going.`;
       play.src = './svg/play.svg';
+      homeBtn.style.visibility = 'hidden';
     }
   };
 
