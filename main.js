@@ -4,6 +4,7 @@ const app = () => {
   const outline = document.querySelector('.moving-outline circle');
   const video = document.querySelector('.vid-container video');
   const changeText = document.querySelector('.desc-change');
+  const homeBtn = document.querySelector('.home-btn');
 
   // Sounds
   const sounds = document.querySelectorAll('.sound-picker button');
@@ -14,6 +15,8 @@ const app = () => {
   const outlineLength = outline.getTotalLength();
   // Duration
   let fakeDuration = 600;
+  // Hide Home Button
+  homeBtn.style.visibility = 'hidden';
 
   outline.style.strokeDasharray = outlineLength;
   outline.style.strokeDashoffset = outlineLength;
@@ -30,6 +33,11 @@ const app = () => {
   // Play Sound
   play.addEventListener('click', () => {
     checkPlaying(song);
+  });
+
+  // Go To LFL Homepage
+  homeBtn.addEventListener('click', () => {
+    window.location.href = 'https://www.leftfieldlabs.com/';
   });
 
   // Choose Song Duration
@@ -79,6 +87,7 @@ const app = () => {
       play.src = './svg/play.svg';
       video.pause();
       changeText.textContent = `Congratulations, now press Home to go back to the main page.`;
+      homeBtn.style.visibility = 'visible';
     }
   };
 };

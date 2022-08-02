@@ -34,6 +34,24 @@
   font-weight: bold;
 }
 
+.player-container button {
+  color: white;
+  width: 10%;
+  height: 5%;
+  background: none;
+  border: 2px solid white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 20px;
+  position: fixed;
+  bottom: 10%;
+}
+
+.player-container button:hover {
+  color: black;
+  background: white;
+}
+
 .player-container p {
   position: fixed;
   top: 16%;
