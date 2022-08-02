@@ -5,6 +5,8 @@ const app = () => {
   const video = document.querySelector('.vid-container video');
   const changeText = document.querySelector('.desc-change');
   const homeBtn = document.querySelector('.home-btn');
+  const wrap = document.querySelector('.wrap');
+  const circle = document.querySelector('.circle');
 
   // Sounds
   const sounds = document.querySelectorAll('.sound-picker button');
@@ -14,9 +16,10 @@ const app = () => {
   // Outline Total Length
   const outlineLength = outline.getTotalLength();
   // Duration
-  let fakeDuration = 600;
+  let fakeDuration = 120;
   // Hide Home Button
   homeBtn.style.visibility = 'visible';
+  wrap.style.visibility = 'visible';
 
   outline.style.strokeDasharray = outlineLength;
   outline.style.strokeDashoffset = outlineLength;
