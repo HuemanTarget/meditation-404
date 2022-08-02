@@ -37,7 +37,7 @@ const app = () => {
       fakeDuration = this.getAttribute('data-time');
       timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
         fakeDuration % 60
-      )}`;
+      )}0`;
     });
   });
 
