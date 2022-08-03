@@ -31,7 +31,7 @@ const app = () => {
   sounds.forEach((sound) => {
     sound.addEventListener('click', function () {
       song.src = this.getAttribute('data-sound');
-      video.src = this.getAttribute('data-video');
+      // video.src = this.getAttribute('data-video');
       checkPlaying(song);
     });
   });
@@ -50,10 +50,12 @@ const app = () => {
   // Choose Song Duration
   timeSelect.forEach((option) => {
     option.addEventListener('click', function () {
-      fakeDuration = this.getAttribute('data-time');
-      timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
-        fakeDuration % 60
-      )}0`;
+      // fakeDuration = this.getAttribute('data-time');
+      // timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
+      //   fakeDuration % 60
+      // )}0`;
+      song.src = this.getAttribute('data-sound');
+      checkPlaying(song);
     });
   });
 
@@ -100,14 +102,14 @@ const app = () => {
     // }
   };
 
-  function kickOff() {
-    setTimeout(function () {
-      breath.textContent = 'Breath In';
-    }, 5000);
-    setTimeout(function () {
-      breath.textContent = 'Breath Out';
-    }, 5000);
-  }
+  // function kickOff() {
+  //   setTimeout(function () {
+  //     breath.textContent = 'Breath In';
+  //   }, 5000);
+  //   setTimeout(function () {
+  //     breath.textContent = 'Breath Out';
+  //   }, 5000);
+  // }
 
   // function breathIn() {
   //   // do whatever you like here
