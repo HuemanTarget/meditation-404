@@ -26,7 +26,7 @@ const app = () => {
 
   // outline.style.strokeDasharray = outlineLength;
   // outline.style.strokeDashoffset = outlineLength;
-  video.play();
+  // video.play();
   // Pick Different Sounds
   sounds.forEach((sound) => {
     sound.addEventListener('click', function () {
@@ -37,9 +37,9 @@ const app = () => {
   });
 
   // Play Sound
-  play.addEventListener('click', () => {
-    checkPlaying(song);
-  });
+  // play.addEventListener('click', () => {
+  //   checkPlaying(song);
+  // });
 
   // Go To LFL Homepage
   homeBtn.addEventListener('click', () => {
