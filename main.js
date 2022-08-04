@@ -34,6 +34,8 @@ const app = () => {
   // homeBtn.style.visibility = 'visible';
   // wrap.style.visibility = 'visible';
 
+  morph.style.visibility = 'hidden';
+
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
   // outline.style.strokeDasharray = outlineLength;
@@ -57,6 +59,7 @@ const app = () => {
     // circleFour.style.animation = 'circle-4 4s ease alternate infinite';
     // circleFive.style.animation = 'circle-5 4s ease alternate infinite';
     // circleSix.style.animation = 'circle-6 4s ease alternate infinite';
+    morph.style.visibility = 'visible';
     window.requestAnimationFrame(tick);
     console.log('button pressed');
     play.style.visibility = 'hidden';
