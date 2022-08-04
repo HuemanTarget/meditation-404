@@ -1,17 +1,31 @@
 const app = () => {
   const song = document.querySelector('.song');
   const play = document.querySelector('.play');
-  // const outline = document.querySelector('.moving-outline circle');
-  // const video = document.querySelector('.vid-container video');
+  const outline = document.querySelector('.moving-outline circle');
+  const video = document.querySelector('.vid-container video');
   const changeText = document.querySelector('.desc-change');
   const homeBtn = document.querySelector('.home-btn');
-  // const wrap = document.querySelector('.wrap');
-  // const circle = document.querySelector('.circle');
-  // const breath = document.querySelector('.breath');
+  const wrap = document.querySelector('.wrap');
+  const circle = document.querySelector('.circle');
+  const breath = document.querySelector('.breath');
 
   const svg = document.querySelector('svg');
   const ngons = [...document.querySelectorAll('.ngon')];
   const morph = document.querySelector('.morph');
+
+  // var tl = new TimelineMax({ delay: 0.5, repeat: -1, repeatDelay: 2 });
+
+  // tl.set('.ngon', { y: 30, opacity: 0 })
+  //   // .set('#mirror', {x: -2})
+  //   .to('.ngon', 1, { y: 32, opacity: 1 }, 0)
+  //   .to(
+  //     '.ngon',
+  //     6,
+  //     { x: -20, rotation: 30, ease: Elastic.easeIn.config(1, 0.4) },
+  //     0
+  //   )
+  //   .to('.ngon', 3, { y: 120, ease: Sine.easeIn }, 3)
+  //   .to('.ngon', 6, { x: -40, rotation: 60, opacity: 0 });
 
   // Circles
   // const circleOne = document.querySelector('div.circle:nth-child(1)');
@@ -45,14 +59,14 @@ const app = () => {
   sounds.forEach((sound) => {
     sound.addEventListener('click', function () {
       song.src = this.getAttribute('data-sound');
-      // video.src = this.getAttribute('data-video');
+      video.src = this.getAttribute('data-video');
       checkPlaying(song);
     });
   });
 
   // Play Animation
   play.addEventListener('click', () => {
-    // checkPlaying(song);
+    checkPlaying(song);
     // circleOne.style.animation = 'circle-1 4s ease alternate infinite';
     // circleTwo.style.animation = 'circle-2 4s ease alternate infinite';
     // circleThree.style.animation = 'circle-3 4s ease alternate infinite';
@@ -61,7 +75,7 @@ const app = () => {
     // circleSix.style.animation = 'circle-6 4s ease alternate infinite';
     morph.style.visibility = 'visible';
     window.requestAnimationFrame(tick);
-    console.log('button pressed');
+    // console.log('button pressed');
     play.style.visibility = 'hidden';
   });
 
@@ -74,10 +88,10 @@ const app = () => {
   // Choose Song Duration
   timeSelect.forEach((option) => {
     option.addEventListener('click', function () {
-      // fakeDuration = this.getAttribute('data-time');
-      // timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
-      //   fakeDuration % 60
-      // )}0`;
+      fakeDuration = this.getAttribute('data-time');
+      timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
+        fakeDuration % 60
+      )}0`;
       song.src = this.getAttribute('data-sound');
       checkPlaying(song);
     });
@@ -89,43 +103,42 @@ const app = () => {
   const checkPlaying = (song) => {
     if (song.paused) {
       song.play();
-      // video.play();
+      video.play();
       play.src = './svg/pause.svg';
       changeText.textContent = `Breath in and out to relax the mind.`;
-      homeBtn.style.visibility = 'hidden';
+      homeBtn.style.visibility = 'visible';
     } else {
       song.pause();
-      // video.pause();
+      video.pause();
       changeText.textContent = `You can't be done just yet. Keep going.`;
       play.src = './svg/play.svg';
-      homeBtn.style.visibility = 'hidden';
+      homeBtn.style.visibility = 'visible';
     }
   };
 
   // Animate Circle
-  // song.ontimeupdate = () => {
-  //   let currentTime = song.currentTime;
-  //   let elapsed = fakeDuration - currentTime;
-  //   let seconds = Math.floor(elapsed % 60);
-  //   let minutes = Math.floor(elapsed / 60);
+  song.ontimeupdate = () => {
+    let currentTime = song.currentTime;
+    let elapsed = fakeDuration - currentTime;
+    let seconds = Math.floor(elapsed % 60);
+    let minutes = Math.floor(elapsed / 60);
 
-  //   // Animate Circle
-  //   let progress = outlineLength - (currentTime / fakeDuration) * outlineLength;
-  //   outline.style.strokeDashoffset = progress;
+    //   // Animate Circle
+    //   let progress = outlineLength - (currentTime / fakeDuration) * outlineLength;
+    //   outline.style.strokeDashoffset = progress;
 
-  //   // Animate Text
-  //   timeDisplay.textContent = `${minutes}:${seconds}`;
+    //   // Animate Text
+    timeDisplay.textContent = `${minutes}:${seconds}`;
 
-  //   // if (currentTime >= fakeDuration) {
-  //   //   song.pause();
-  //   //   song.currentTime = 0;
-  //   //   play.src = './svg/play.svg';
-  //   //   video.pause();
-  //   //   changeText.textContent = `Congratulations, now press Home to go back to the main page.`;
-  //   //   homeBtn.style.visibility = 'visible';
-  //   // }
-  // };
-
+    if (currentTime >= fakeDuration) {
+      song.pause();
+      song.currentTime = 0;
+      play.src = './svg/play.svg';
+      video.pause();
+      changeText.textContent = `Congratulations, now press Home to go back to the main page.`;
+      homeBtn.style.visibility = 'visible';
+    }
+  };
   // function kickOff() {
   //   setTimeout(function () {
   //     breath.textContent = 'Breath In';
@@ -229,6 +242,7 @@ const app = () => {
       stats.end();
     };
   })();
+
   // setup stats
   const stats = new Stats();
   // stats.showPanel(0);

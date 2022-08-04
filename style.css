@@ -6,7 +6,9 @@
 
 img {
   z-index: 100;
-  filter: drop-shadow(0 0 0.1rem black);
+  /* filter: drop-shadow(0 0 0.1rem black); */
+  height: 30px;
+  opacity: 0.5;
 }
 
 img:hover {
@@ -21,18 +23,23 @@ img:hover {
 }
 
 .time-select,
-.sound-picker,
+.sound-picker {
+  height: 80%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .player-container {
+  position: relative;
   height: 80%;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-}
-
-.player-container {
-  position: relative;
 }
 
 .player-container h1 {
@@ -71,13 +78,14 @@ img:hover {
   align-items: center;
 }
 
-.player-container svg {
+.svg-anim {
   position: absolute;
   height: 70%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
+  /* -webkit-box-reflect: below; */
 }
 
 .time-display {
@@ -104,7 +112,100 @@ video {
   z-index: -10;
 }
 
-.time-select button,
+/* .time-select::before,
+.time-select::after {
+  content: '';
+  position: absolute;
+  transition: all 0.3s;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 12px;
+} */
+
+/*
+ BUTTON ONE
+*/
+.btn-one::before,
+.btn-one::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  transition: all 0.3s;
+  border: 2px solid rgba(255, 255, 255, 1);
+}
+
+.btn-one:hover::after {
+  animation-name: rotatecw;
+  animation-duration: 2s;
+}
+.btn-one:hover::before {
+  animation-name: rotateccw;
+  animation-duration: 3s;
+}
+
+.btn-one:hover::after,
+.btn-one:hover::before {
+  left: 15px;
+  width: 64px;
+  cursor: pointer;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotatecw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateccw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.btn {
+  position: relative;
+  color: white;
+  width: 100px;
+  height: 64px;
+  line-height: 64px;
+  transition: all 0.3s;
+  margin-bottom: 25px;
+  text-align: center;
+  /* span {
+    transition: all 0.3s;
+    tranform: scale(1, 1);
+  } */
+}
+
+.btn::before,
+.btn::after {
+  content: '';
+  position: absolute;
+  transition: all 0.3s;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 12px;
+}
+
+/* .time-select button,
 .sound-picker button {
   color: white;
   width: 30%;
@@ -114,12 +215,13 @@ video {
   cursor: pointer;
   border-radius: 5px;
   font-size: 20px;
-}
+  margin-bottom: 50px;
+} */
 
-.time-select button:hover {
+/* .time-select button:hover {
   color: black;
   background: white;
-}
+} */
 
 svg {
   position: absolute;

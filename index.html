@@ -12,14 +12,23 @@
     <div class="app">
       <div class="vid-container">
         <video loop autoplay>
-          <source src="./video/lfl_bg.mp4 " type="video/mp4 " />
+          <source src="./video/rain.mp4 " type="video/mp4 " />
         </video>
       </div>
 
       <div class="time-select">
-        <button data-time="120">2 minutes</button>
-        <button data-time="300">5 minutes</button>
-        <button data-time="600">10 minutes</button>
+        <!-- <button data-time="120"><span>2 minutes</span></button> -->
+        <div class="btn btn-one">
+          <span data-time="120">2 Min</span>
+        </div>
+        <div class="btn btn-one">
+          <span data-time="120">5 Min</span>
+        </div>
+        <div class="btn btn-one">
+          <span data-time="120">10 Min</span>
+        </div>
+        <!-- <button data-time="300">5 minutes</button>
+        <button data-time="600">10 minutes</button> -->
       </div>
       <div class="player-container">
         <h1 class="title">Left Field Labs 404 Page</h1>
@@ -29,9 +38,9 @@
             >The Universe says to take some time for your brain.</span
           >
         </p>
-        <!-- <audio class="song">
+        <audio class="song">
           <source src="./sounds/rain.mp3" />
-        </audio> -->
+        </audio>
         <img src="./svg/play.svg" alt="play" class="play" />
         <!-- <div class="circle">Circle One</div>
         <div class="circle"></div>
@@ -43,6 +52,7 @@
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-120 -120 240 240"
+          class="svg-anim"
         >
           <defs>
             <filter id="glow">
@@ -170,7 +180,7 @@
           ></path>
         </svg>
 
-        <h3 class="time-display">0:00</h3>
+        <h3 class="time-display">2:00</h3>
         <!-- <h3 class="breath">Breath In</h3> -->
         <button class="home-btn">Go Home</button>
       </div>
@@ -189,7 +199,9 @@
         </button>
       </div>
     </div>
+    <script src="./js/tween.js" type="text/javascript"></script>
     <script src="./js/recurve.js" type="text/javascript"></script>
     <script src="./js/stat.js" type="text/javascript"></script>
+    <script src="./js/timeline.js" type="text/javascript"></script>
   </body>
 </html>
