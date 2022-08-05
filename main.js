@@ -8,6 +8,8 @@ const app = () => {
   const wrap = document.querySelector('.wrap');
   const circle = document.querySelector('.circle');
   const breath = document.querySelector('.breath');
+  const timeTwo = document.querySelector('.time-2');
+  const timeFive = document.querySelector('.time-5');
 
   const svg = document.querySelector('svg');
   const ngons = [...document.querySelectorAll('.ngon')];
@@ -39,7 +41,7 @@ const app = () => {
   const sounds = document.querySelectorAll('.sound-picker button');
   // Time Display
   const timeDisplay = document.querySelector('.time-display');
-  const timeSelect = document.querySelectorAll('.time-select button');
+  const timeSelect = document.querySelectorAll('.time button');
   // Outline Total Length
   // const outlineLength = outline.getTotalLength();
   // Duration
@@ -61,6 +63,7 @@ const app = () => {
       song.src = this.getAttribute('data-sound');
       video.src = this.getAttribute('data-video');
       checkPlaying(song);
+      console.group('sound pressed');
     });
   });
 
@@ -81,11 +84,10 @@ const app = () => {
 
   // Go To LFL Homepage
   homeBtn.addEventListener('click', () => {
-    // console.log('Button Clicked');
     window.location.href = 'https://www.leftfieldlabs.com/';
   });
 
-  // Choose Song Duration
+  // Choose Time Duration
   timeSelect.forEach((option) => {
     option.addEventListener('click', function () {
       fakeDuration = this.getAttribute('data-time');
@@ -94,8 +96,29 @@ const app = () => {
       )}0`;
       song.src = this.getAttribute('data-sound');
       checkPlaying(song);
+      console.group('time pressed');
     });
   });
+
+  // timeTwo.addEventListener('click', () => {
+  //   // fakeDuration = 120;
+  //   // timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
+  //   //   fakeDuration % 60
+  //   // )}0`;
+  //   // song.src = this.getAttribute('data-sound');
+  //   // checkPlaying(song);
+  //   console.log('2 clicked');
+  // });
+
+  // timeFive.addEventListener('click', function () {
+  //   // fakeDuration = 300;
+  //   // timeDisplay.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(
+  //   //   fakeDuration % 60
+  //   // )}0`;
+  //   // song.src = this.getAttribute('data-sound');
+  //   // checkPlaying(song);
+  //   console.log('5 clicked');
+  // });
 
   // Functions
 

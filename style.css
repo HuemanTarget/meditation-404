@@ -95,12 +95,12 @@ img:hover {
   font-size: 50px;
 }
 
-.breath {
+/* .breath {
   position: absolute;
   bottom: 10%;
   color: white;
   font-size: 50px;
-}
+} */
 
 video {
   position: fixed;
@@ -203,6 +203,12 @@ video {
   height: 100%;
   z-index: 1;
   border-radius: 12px;
+}
+
+button {
+  font-size: 10px;
+  color: white;
+  background: none;
 }
 
 /* .time-select button,
